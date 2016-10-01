@@ -1,6 +1,6 @@
 # Watch Later
 
-Right Click link to add to Youtube 'Watch Later' playlist
+Right-click link to add to Youtube 'Watch Later' playlist
 
 # Planned Features
 
