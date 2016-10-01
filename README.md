@@ -4,8 +4,9 @@ Right Click link to add to Youtube 'Watch Later' playlist
 
 # Planned Features
 
-* Badge showing number of video in 'Watch Later' playlist
-* Right-click delete all and delete watched
+* Badge showing number of videos in 'Watch Later' playlist
+* Right-click delete all
+* Right-click delete watched
 
 # TODO
 
