@@ -12,6 +12,6 @@ Right-click link to add to Youtube 'Watch Later' playlist
 
 # TODO
 
-* Add screenshots
+* Add Chrome store tiles
 * Handle change user/profile
 * Testing
