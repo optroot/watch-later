@@ -15,3 +15,4 @@ Right-click link to add to Youtube 'Watch Later' playlist
 * Add Chrome store tiles
 * Handle change user/profile
 * Testing
+* Mark originating links as visited after watching
