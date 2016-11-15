@@ -14,7 +14,10 @@ function request(data) {
 
 function getVideoId(url) {
 	var match;
-	if (match = url.match(/youtube\.com\/watch\?v=([^&]+)/)) return match[1];
+  console.log("getVideoId");
+  url = decodeURIComponent(url);
+  console.log(url);
+  if (match = url.match(/youtube\.com.*\/watch\?v=([^&]+)/)) return match[1];
 	if (match = url.match(/youtu.be\/([^&]+)/)) return match[1];
 	return false;
 }
@@ -52,7 +55,7 @@ function watchLater(info, tab) {
 					console.error('Could not add to Wait Later', this.status);
 				}
     		},
-    	});    	
+    	});
     });
 }
 
@@ -62,8 +65,8 @@ chrome.contextMenus.create({
 	    'link',
     ],
     'targetUrlPatterns': [
-    	'*://youtu.be/*', 
-    	'*://*.youtube.com/watch?v=*',
+    	'*://youtu.be/*',
+      '*://*.youtube.com/*watch*',
     ],
     'onclick': watchLater,
 });
