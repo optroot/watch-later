@@ -19,12 +19,15 @@ function getVideoId(url) {
   console.log(url);
   if (match = url.match(/youtube\.com.*\/watch\?v=([^&]+)/)) return match[1];
 	if (match = url.match(/youtu.be\/([^&]+)/)) return match[1];
+  if (match = url.match(/watch\?v=([^&]+)/)) return match[1];
+  if (match = url.match(/[\?\&]v=([^&]+)/)) return match[1];
 	return false;
 }
 
 function watchLater(info, tab) {
 	var id;
 	if (info.linkUrl)  id = getVideoId(info.linkUrl);
+	console.log('id', id);
 	if (!id) return;
 
     chrome.identity.getAuthToken({'interactive': true}, function (token) {
@@ -65,8 +68,11 @@ chrome.contextMenus.create({
 	    'link',
     ],
     'targetUrlPatterns': [
-    	'*://youtu.be/*',
-      '*://*.youtube.com/*watch*',
+      '*://youtu.be/*',
+     //  	'*://*.youtube.com/*watch*',
+     '*://*/watch?v=*',
+     '*://*/*v=*',
+     //'*://*/*',
     ],
     'onclick': watchLater,
 });
