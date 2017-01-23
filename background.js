@@ -17,10 +17,10 @@ function getVideoId(url) {
   console.log("getVideoId");
   url = decodeURIComponent(url);
   console.log(url);
-  if (match = url.match(/youtube\.com.*\/watch\?v=([^&]+)/)) return match[1];
-	if (match = url.match(/youtu.be\/([^&]+)/)) return match[1];
-  if (match = url.match(/watch\?v=([^&]+)/)) return match[1];
-  if (match = url.match(/[\?\&]v=([^&]+)/)) return match[1];
+  if ((match = url.match(/youtube\.com.*\/watch\?v=([^&]+)/))) return match[1];
+	if ((match = url.match(/youtu.be\/([^&]+)/))) return match[1];
+  if ((match = url.match(/watch\?v=([^&]+)/))) return match[1];
+  if ((match = url.match(/[\?\&]v=([^&]+)/))) return match[1];
 	return false;
 }
 
@@ -62,16 +62,20 @@ function watchLater(info, tab) {
     });
 }
 
+// Patterns:
+// https://www.youtube.com/attribution_link?a=3vl00gWknyc&u=/watch%3Fv%3DxfP6IkpfgqQ%26feature%3Dem-uploademail
+// /watch?v=
+
 chrome.contextMenus.create({
     'title': 'Watch Later',
     'contexts': [
 	    'link',
     ],
     'targetUrlPatterns': [
-      '*://youtu.be/*',
-     //  	'*://*.youtube.com/*watch*',
-     '*://*/watch?v=*',
-     '*://*/*v=*',
+       '*://youtu.be/*',
+       // '*://*.youtube.com/*watch*',
+       // '*://*/watch?v=*',
+       '*://*/watch*v*',
      //'*://*/*',
     ],
     'onclick': watchLater,
