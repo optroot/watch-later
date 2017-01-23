@@ -75,7 +75,7 @@ chrome.contextMenus.create({
        '*://youtu.be/*',
        // '*://*.youtube.com/*watch*',
        // '*://*/watch?v=*',
-       '*://*/watch*v*',
+       '*://*/*watch*',
      //'*://*/*',
     ],
     'onclick': watchLater,
